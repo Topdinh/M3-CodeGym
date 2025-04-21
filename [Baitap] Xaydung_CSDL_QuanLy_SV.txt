@@ -1,0 +1,17 @@
+Create database if not exists demo;
+
+use demo;
+
+Create table if not exists Class
+(
+	id int,
+	name varchar(200)
+);
+
+Create table if not exists Teacher
+(
+	id int,
+	name varchar(200),
+	age int,
+	country varchar(50)
+);
