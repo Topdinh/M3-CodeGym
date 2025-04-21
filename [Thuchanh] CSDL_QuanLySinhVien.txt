@@ -1,0 +1,41 @@
+Create Database if not exists QuanLySinhVien;
+
+Use QuanLySinhVien;
+
+Create Table if not exists Class
+(
+	ClassID Int Primary key not null AUTO_INCREMENT,
+	ClassName varchar(60) not null,
+	StartDate Datetime not null,
+	Status Bit
+);
+
+Create Table if not exists Student
+(
+	StudentID Int Primary key not null AUTO_INCREMENT,
+	StudentName varchar(30) not null,
+	Address varchar(50),
+	Phone varchar(20),
+	Status Bit,
+	ClassID Int not null,
+	Foreign key (ClassID) References Class(ClassID)
+);
+
+Create Table if not exists Subject
+(
+	SubID Int not null Primary key AUTO_INCREMENT,
+	SubName varchar(30) not null,
+	Credit Tinyint not null default(1) check(Credit >= 1),
+	Status Bit default(1)
+);
+
+Create Table if not exists Mark
+(
+	MarkID Int not null Primary key AUTO_INCREMENT,
+	SubID int not null unique,
+	StudentID int not null unique,
+	Mark float default(0) check(Mark Between 0 and 100),
+	ExamTimes Tinyint default(1),
+	Foreign key (SubID) References Subject(SubID),
+	Foreign key (StudentID) References Student(StudentID)
+);
