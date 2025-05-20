@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS tcomplex_rental;
+USE tcomplex_rental;
+
+CREATE TABLE IF NOT EXISTS mat_bang (
+    ma_mat_bang VARCHAR(20) PRIMARY KEY,
+    trang_thai VARCHAR(20) NOT NULL,
+    dien_tich FLOAT NOT NULL,
+    tang INT NOT NULL,
+    loai VARCHAR(50) NOT NULL,
+    gia_tien BIGINT NOT NULL,
+    ngay_bat_dau DATE NOT NULL,
+    ngay_ket_thuc DATE NOT NULL
+);
+
